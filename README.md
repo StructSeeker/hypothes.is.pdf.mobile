@@ -6,6 +6,14 @@ This web app modify [hypothesis/pdf.js-hypothes.is](https://github.com/hypothesi
 
 Please enter [here](https://structseeker.github.io/hypothes.is.pdf.pwa/index.html) and follow the instruction to annotate your pdf file.
 
+## Notes
+
+No file is uploaded to remote server while opening.  
+The annotation you made can't be visited by url from [User Page](https://hypothes.is/users/), so you'd better name your pdf's title metadata properly for convenience.
+
+
 ## TODO
 
 Make it a PWA  
+
+
