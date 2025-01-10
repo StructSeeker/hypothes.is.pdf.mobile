@@ -74,7 +74,8 @@ var defaultOptions = {
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
   },
   defaultUrl: {
-    value: "compressed.tracemonkey-pldi-09.pdf",
+    // value: "compressed.tracemonkey-pldi-09.pdf",
+    value: "display.pdf",
     kind: OptionKind.VIEWER
   },
   defaultZoomValue: {
@@ -2412,6 +2413,8 @@ var PDFViewerApplication = {
     _boundEvents.beforePrint = this.beforePrint.bind(this);
     _boundEvents.afterPrint = this.afterPrint.bind(this);
 
+    eventBus._on("input", () => console.log("transition"));
+
     eventBus._on("resize", webViewerResize);
 
     eventBus._on("hashchange", webViewerHashchange);
@@ -2814,6 +2817,10 @@ function webViewerInitialized() {
   var params = (0, _ui_utils.parseQueryString)(queryString);
   file = (_params$get = params.get("file")) !== null && _params$get !== void 0 ? _params$get : _app_options.AppOptions.get("defaultUrl");
   validateFileURL(file);
+
+  
+  
+
   var fileInput = document.createElement("input");
   fileInput.id = appConfig.openFileInputName;
   fileInput.className = "fileInput";
@@ -3094,6 +3101,27 @@ var webViewerFileInputChange, webViewerOpenFile;
     }
 
     PDFViewerApplication.open(url);
+
+    function loadHypothesis() {
+      PDFViewerApplication.initializedPromise.then(() => {
+        const embedScript = document.createElement('script');
+        embedScript.src = 'https://hypothes.is/embed.js';
+        document.body.appendChild(embedScript);
+      });
+    }
+
+    function unloadHypothesis() {
+      var appLinkEl =
+          document.querySelector('link[type="application/annotator+html"]');
+      appLinkEl.dispatchEvent(new Event('destroy'));
+    };
+    
+    function reloadHypothesis(){
+      unloadHypothesis(); loadHypothesis();
+    }
+    
+    reloadHypothesis()
+
   };
 
   webViewerOpenFile = function webViewerOpenFile(evt) {
