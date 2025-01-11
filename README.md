@@ -4,7 +4,7 @@ Hypothesis annotation on mobile device is possible via browser extension (on kiw
 
 This web app modify [hypothesis/pdf.js-hypothes.is](https://github.com/hypothesis/pdf.js-hypothes.is) and enable user to view and annotate pdf directly on mobile device, or any device without extension installed.
 
-Please enter [here](https://structseeker.github.io/hypothes.is.pdf.pwa/index.html) and follow the instruction to annotate your pdf file.
+Please enter [here](https://structseeker.github.io/hypothes.is.pdf.mobile/index.html) and follow the instruction to annotate your pdf file.
 
 ## Notes
 
