@@ -14,6 +14,6 @@ The annotation you made can't be visited by url from [User Page](https://hypothe
 
 ## TODO
 
-Make it a PWA  
+Make it a PWA (Currently tabbed PWA isn't official yet, may need a large remake of whole framework)
 
 
